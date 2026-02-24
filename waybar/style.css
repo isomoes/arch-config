@@ -5,8 +5,8 @@
 }
 
 window#waybar {
-  background-color: #f5f5f5; /* Light gray background */
-  color: #1a1a1a; /* Dark text for contrast */
+  background-color: #1a1b26; /* Deep dark blue-gray */
+  color: #c0caf5; /* Soft bright text */
 }
 
 window#waybar.hidden {
@@ -20,7 +20,7 @@ button {
 }
 
 button:hover {
-  background: #e0e0e0; /* Light hover state */
+  background: #24283b; /* Darker hover state */
 }
 
 #workspaces button,
@@ -28,41 +28,41 @@ button:hover {
   padding: 0 8px;
   background-color: transparent;
   border-radius: 0;
-  color: #555555; /* Medium gray text */
+  color: #a9b1d6; /* Muted blue-gray text */
   min-width: 0;
 }
 
 #workspaces button:hover,
 #tags button:hover {
-  background: #e0e0e0; /* Subtle hover */
+  background: #24283b; /* Subtle hover */
 }
 
 #workspaces button.focused,
 #workspaces button.active,
 #tags button.focused {
-  background-color: #0066cc; /* High contrast blue for active */
-  color: #ffffff; /* White text on blue background */
+  background-color: #7aa2f7; /* Bright blue for active */
+  color: #1a1b26; /* Dark text on light background */
 }
 
 #workspaces button.visible {
-  background-color: #cccccc; /* Medium gray for visible */
-  color: #1a1a1a; /* Dark text */
+  background-color: #414868; /* Medium gray for visible */
+  color: #c0caf5; /* Bright text */
 }
 
 #workspaces button.urgent,
 #tags button.urgent {
-  background-color: #d32f2f; /* High contrast red for urgent */
-  color: #ffffff; /* White text */
+  background-color: #f7768e; /* Pink-red for urgent */
+  color: #1a1b26; /* Dark text */
 }
 
 #workspaces button.persistent {
-  color: #0066cc; /* Blue accent - distinguishable from red/green */
+  color: #7dcfff; /* Cyan accent */
 }
 
 #mode {
   padding: 0 8px;
-  background-color: #f57c00; /* High contrast orange */
-  color: #ffffff; /* White text */
+  background-color: #e0af68; /* Warm yellow/orange */
+  color: #1a1b26; /* Dark text */
   font-weight: bold;
 }
 
@@ -84,7 +84,7 @@ button:hover {
 #mpd {
   padding: 0 8px;
   border-radius: 0;
-  color: #1a1a1a; /* Dark text */
+  color: #c0caf5; /* Bright text */
   background-color: transparent;
 }
 
@@ -105,24 +105,24 @@ button:hover {
 }
 
 #battery.critical:not(.charging) {
-  background-color: #d32f2f; /* High contrast red */
-  color: #ffffff; /* White text */
+  background-color: #f7768e; /* Pink-red */
+  color: #1a1b26; /* Dark text */
 }
 
 #network.disconnected {
-  color: #d32f2f; /* High contrast red */
+  color: #f7768e; /* Pink-red */
 }
 
 #pulseaudio.muted {
-  color: #757575; /* Medium gray */
+  color: #565f89; /* Very muted gray */
 }
 
 #tray > .needs-attention {
-  background-color: #d32f2f; /* High contrast red */
+  background-color: #f7768e; /* Pink-red */
 }
 
 #cpu {
-  color: #0066cc; /* High contrast blue */
+  color: #7dcfff; /* Bright cyan */
 }
 
 #memory {
@@ -130,9 +130,9 @@ button:hover {
 }
 
 #clock {
-  color: #0066cc; /* High contrast blue */
+  color: #7aa2f7; /* Bright blue */
 }
 
 #pulseaudio {
-  color: #2e7d32; /* High contrast green - distinguishable from red/blue */
+  color: #9ece6a; /* Bright green */
 }
