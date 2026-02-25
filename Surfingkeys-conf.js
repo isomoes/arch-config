@@ -1,19 +1,19 @@
-// an example to create a new mapping `ctrl-y`
-api.mapkey('<ctrl-y>', 'Show me the money', function () {
-    Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
-});
-
 // an example to replace `T` with `gt`, click `Default mappings` to see how `T` works.
-api.map('gt', 'T');
+api.map("gt", "T");
 
-api.map('H', 'S');  // backword browser history 
-api.map('L', 'D'); // forward browser history 
+api.map("H", "S"); // backword browser history
+api.map("L", "D"); // forward browser history
+
+// use J/K instead of R/E for tab switching
+api.map("J", "R");
+api.map("K", "E");
 
 // an example to remove mapkey `Ctrl-i`
-api.unmap('<ctrl-i>');
+api.unmap("<ctrl-i>");
 
 // set the block website.
-settings.blocklistPattern = /((calendar).google|udemy|member.bilibili).com|.*follow.is/i;
+settings.blocklistPattern =
+  /((calendar).google|udemy|member.bilibili).com|.*follow.is/i;
 
 // set theme
 settings.theme = `
@@ -53,4 +53,3 @@ settings.theme = `
 #sk_status, #sk_find {
     font-size: 20pt;
 }`;
-// click `Save` button to make above settings to take effect.</ctrl-i></ctrl-y>
