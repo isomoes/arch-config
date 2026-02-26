@@ -7,10 +7,10 @@ Type=simple
 Environment="PORT=9000"
 Environment="DISPLAY=:0"
 Environment="WAYLAND_DISPLAY=wayland-1"
-Environment="XDG_RUNTIME_DIR=/run/user/1000"
-Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus"
+Environment="XDG_RUNTIME_DIR=%t"
+Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=%t/bus"
 Environment="PATH=%h/.bun/bin:%h/.local/bin:%h/.nvm/versions/node/v24.12.0/bin:/usr/local/bin:/usr/bin"
-ExecStart=/home/isomo/.nvm/versions/node/v24.12.0/bin/npx vibe-kanban
+ExecStart=%h/.nvm/versions/node/v24.12.0/bin/npx vibe-kanban
 Restart=on-failure
 RestartSec=5
 

@@ -4,7 +4,7 @@ After=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/xremap /home/isomo/.config/xremap/config.yml
+ExecStart=/usr/bin/xremap %h/.config/xremap/config.yml
 Restart=on-failure
 RestartSec=2
 

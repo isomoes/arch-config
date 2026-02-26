@@ -6,7 +6,7 @@ Wants=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/mouse-gesture-recognition --config /home/isomo/.config/mouse-gesture/config.json
+ExecStart=/usr/local/bin/mouse-gesture-recognition --config %h/.config/mouse-gesture/config.json
 Restart=always
 RestartSec=5
 Environment=DISPLAY=:0
