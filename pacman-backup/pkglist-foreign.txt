@@ -1,4 +1,5 @@
 adobe-source-han-mono-cn-fonts
+antigravity
 bambustudio-bin
 bbdown-bin
 codeql
@@ -13,6 +14,7 @@ nvidia-580xx-utils
 protonup-qt
 python-translate-shell
 qqmusic-bin
+termdbms-git
 ttf-font-awesome-5
 unityhub
 visual-studio-code-bin

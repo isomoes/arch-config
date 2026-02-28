@@ -25,6 +25,8 @@ fcitx5-gtk
 fcitx5-pinyin-zhwiki
 fd
 firefox
+firefox-tridactyl
+firefox-tridactyl-native
 foot
 fzf
 gamescope
@@ -91,8 +93,9 @@ python-pwntools
 python-pyqt5
 reflector
 ripgrep
-river
+river-classic
 rofi
+rust-wasm
 sagemath
 simple-scan
 smartmontools
