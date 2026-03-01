@@ -1,0 +1,14 @@
+[Unit]
+Description=IKanban Task Management System
+After=network.target graphical-session.target
+
+[Service]
+Type=simple
+Environment="HTTPS_PROXY=http://localhost:1080"
+Environment="PATH=%h/.bun/bin:%h/.local/bin:%h/.nvm/versions/node/v24.12.0/bin:/usr/local/bin:/usr/bin"
+ExecStart=%h/.nvm/versions/node/v24.12.0/bin/npx ikanban-web --port 9001
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
