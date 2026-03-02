@@ -25,12 +25,12 @@ triggers = [
         "什么窗口管理器",
         "window manager",
         "desktop environment",
-    ], response = "river" },
+    ], response = "sway" },
     { keywords = [
         "什么终端",
         "what terminal",
         "terminal emulator",
-    ], response = "Foot Terminal" },
+    ], response = "Kitty Terminal" },
     { keywords = [
         "什么shell",
         "what shell",
@@ -41,16 +41,11 @@ triggers = [
         "what editor",
         "用的什么编辑器",
         "code editor",
-    ], response = "Vscode" },
+    ], response = "nvim" },
     { keywords = [
         "配置文件",
         "dotfiles",
         "config files",
         "配置在哪",
     ], response = "配置文件开源" },
-    { keywords = [
-        "什么字体",
-        "what font",
-        "用的什么字体",
-    ], response = "JetBrains Mono + Nerd Fonts" },
 ]
