@@ -1,0 +1,12 @@
+[Unit]
+Description=CLIProxyAPI Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/cli-proxy-api --config %h/.config/cli-proxy-api/config.yaml
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
