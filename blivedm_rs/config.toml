@@ -10,10 +10,6 @@ enabled = true
 cooldown_seconds = 2
 triggers = [
     { keywords = [
-        "测试",
-        "test",
-    ], response = "这是一个测试回复" },
-    { keywords = [
         "什么系统",
         "what os",
         "用的什么操作系统",
@@ -32,20 +28,9 @@ triggers = [
         "terminal emulator",
     ], response = "Kitty Terminal" },
     { keywords = [
-        "什么shell",
-        "what shell",
-        "用的什么shell",
-    ], response = "Fish Shell" },
-    { keywords = [
         "什么编辑器",
         "what editor",
         "用的什么编辑器",
         "code editor",
     ], response = "nvim" },
-    { keywords = [
-        "配置文件",
-        "dotfiles",
-        "config files",
-        "配置在哪",
-    ], response = "配置文件开源" },
 ]
