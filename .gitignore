@@ -188,3 +188,4 @@ google-chrome
 pip/pip.conf
 ikanban
 /cli-proxy-api/static/management.html
+/superpowers/worktrees/

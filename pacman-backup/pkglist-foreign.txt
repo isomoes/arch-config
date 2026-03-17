@@ -2,6 +2,7 @@ adobe-source-han-mono-cn-fonts
 antigravity
 bambustudio-bin
 bbdown-bin
+cli-proxy-api-bin
 codeql
 cutter-bin
 drawio-desktop-appimage
