@@ -5,7 +5,7 @@ After=network.target graphical-session.target
 [Service]
 Type=simple
 Environment="PATH=%h/.bun/bin:%h/.local/bin:%h/.nvm/versions/node/v24.12.0/bin:/usr/local/bin:/usr/bin"
-ExecStart=/usr/bin/zsh -lc 'set -a; source %h/.token; set +a; %h/.opencode/bin/opencode serve --port 4097 --cors https://isomoes.github.io'
+ExecStart=/usr/bin/zsh -lc 'source %h/.zshrc; set -a; source %h/.token; set +a; %h/.opencode/bin/opencode serve --port 4097 --cors https://isomoes.github.io'
 Restart=on-failure
 RestartSec=5
 

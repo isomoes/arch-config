@@ -1,12 +1,12 @@
 [Unit]
-Description=SSH Tunnels to Remote Server (Ports 1080 and 2017)
+Description=SSH Tunnels to Remote Servers (Ports 1080, 2017, and 8317)
 After=network-online.target
 Wants=network-online.target
 
 [Service]
 Type=simple
 ExecStartPre=/bin/sleep 3
-ExecStart=/usr/bin/ssh -NT -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o TCPKeepAlive=yes -o ExitOnForwardFailure=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -L 0.0.0.0:1080:127.0.0.1:1080 -L 0.0.0.0:2017:127.0.0.1:2017 ubuntu@43.139.157.97 -i %h/.ssh/id_github
+ExecStart=/bin/sh -lc '/usr/bin/ssh -NT -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o TCPKeepAlive=yes -o ExitOnForwardFailure=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -L 0.0.0.0:1080:127.0.0.1:1080 -L 0.0.0.0:2017:127.0.0.1:2017 -i %h/.ssh/id_github ubuntu@43.139.157.97 & /usr/bin/ssh -NT -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o TCPKeepAlive=yes -o ExitOnForwardFailure=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -L 0.0.0.0:8317:127.0.0.1:8317 -i %h/.ssh/id_github ubuntu@43.128.87.171 & wait'
 Restart=on-failure
 RestartSec=2
 StartLimitInterval=30
