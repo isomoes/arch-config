@@ -189,3 +189,4 @@ pip/pip.conf
 ikanban
 /cli-proxy-api/static/management.html
 /superpowers/worktrees/
+/cli-proxy-api/config.yaml
