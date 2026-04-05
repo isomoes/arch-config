@@ -1,0 +1,16 @@
+[Unit]
+Description=SSH Tunnel to 43.128.87.171 (Port 8317)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sleep 3
+ExecStart=/usr/bin/ssh -NT -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o TCPKeepAlive=yes -o ExitOnForwardFailure=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -L 0.0.0.0:8317:127.0.0.1:8317 ubuntu@43.128.87.171 -i %h/.ssh/id_github
+Restart=on-failure
+RestartSec=2
+StartLimitInterval=30
+StartLimitBurst=3
+
+[Install]
+WantedBy=default.target
