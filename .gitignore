@@ -184,7 +184,7 @@ godot/editor_settings-*.tres
 openspec
 gtk-3.0/bookmarks
 Antigravity
-google-chrome
+google-chrome/*
 pip/pip.conf
 ikanban
 /cli-proxy-api/static/management.html
