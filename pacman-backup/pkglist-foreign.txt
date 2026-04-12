@@ -1,4 +1,5 @@
 adobe-source-han-mono-cn-fonts
+adspower-global
 antigravity
 bambustudio-bin
 bbdown-bin
@@ -6,8 +7,10 @@ cli-proxy-api-bin
 codeql
 cutter-bin
 drawio-desktop-appimage
+google-chrome
 i3bar-river
 ida-free
+kiro-ide
 lib32-nvidia-580xx-utils
 netease-cloud-music-gtk-bin
 nvidia-580xx-dkms

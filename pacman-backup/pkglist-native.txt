@@ -14,7 +14,11 @@ cups
 daed
 discord
 dkms
+docker
+docker-buildx
+docker-compose
 dunst
+earlyoom
 efibootmgr
 emacs-wayland
 fastfetch
@@ -105,6 +109,7 @@ sway
 swaybg
 swayidle
 swaylock
+telegram-desktop
 texlive-basic
 texlive-bibtexextra
 texlive-binextra
