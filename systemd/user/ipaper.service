@@ -1,0 +1,16 @@
+[Unit]
+Description=IPaper Web Server
+After=network.target graphical-session.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h
+Environment="PATH=%h/.opencode/bin:%h/.bun/bin:%h/.local/bin:%h/.nvm/versions/node/v24.12.0/bin:/usr/local/bin:/usr/bin"
+Environment="OPENCODE_BINARY=%h/.opencode/bin/opencode"
+Environment="SSH_AUTH_SOCK=%t/ssh-agent.socket"
+ExecStart=%h/.bun/bin/ipaper serve --port 10011 --foreground
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
