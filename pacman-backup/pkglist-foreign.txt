@@ -15,11 +15,13 @@ lib32-nvidia-580xx-utils
 netease-cloud-music-gtk-bin
 nvidia-580xx-dkms
 nvidia-580xx-utils
+openai-codex-desktop
 protonup-qt
 python-translate-shell
 qqmusic-bin
 termdbms-git
 ttf-font-awesome-5
+ttf-wps-fonts
 unityhub
 visual-studio-code-bin
 wechat-bin

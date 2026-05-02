@@ -10,6 +10,7 @@ biber
 bluez
 bluez-utils
 checksec
+cloudflared
 cups
 daed
 discord
