@@ -5,7 +5,7 @@
   "height": 20, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
   "spacing": 1, // Gaps between modules (4px)
-  "output": "DP-1", // Output to display the bar
+  "output": "DP-3", // Output to display the bar
   // Choose the order of the modules
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-center": ["sway/window"],

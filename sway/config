@@ -13,10 +13,10 @@ font pango:monospace 10
 # ============================================================================
 
 # Configure displays (Wayland native resolution with scaling)
-# DP-1: 3840x2160@60Hz, scale 2.4, position 0,0 (primary)
-# HDMI-A-1: 2560x1440@60Hz, scale 1.6, rotated 270°, position 1600,0
-output DP-1 mode 3840x2160@60Hz pos 0 0 scale 2.4
-output HDMI-A-1 mode 2560x1440@60Hz pos 1600 0 scale 1.6 transform 90
+# DP-3: 3840x2160@119.88Hz, scale 2.4, position 0,0 (primary) -> logical 1600x900
+# DP-2: 3840x2160@60Hz, scale 2.4, position 1600,0 -> logical 1600x900
+output DP-3 mode 3840x2160@119.88Hz pos 0 0 scale 2.4
+output DP-2 mode 3840x2160@60Hz pos 1600 0 scale 2.4 transform 90
 
 # ============================================================================
 # INPUT CONFIGURATION
