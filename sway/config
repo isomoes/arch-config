@@ -13,9 +13,9 @@ font pango:monospace 10
 # ============================================================================
 
 # Configure displays (Wayland native resolution with scaling)
-# DP-3: 3840x2160@119.88Hz, scale 2.4, position 0,0 (primary) -> logical 1600x900
-# DP-2: 3840x2160@60Hz, scale 2.4, position 1600,0 -> logical 1600x900
-output DP-3 mode 3840x2160@119.88Hz pos 0 0 scale 2.4
+# DP-1: 3840x2160@120Hz, scale 2.4, position 0,0 (primary) -> logical 1600x900
+# DP-2: 3840x2160@60Hz, scale 2.4, rotated 90°, position 1600,0 -> logical 900x1600
+output DP-1 mode 3840x2160@120Hz pos 0 0 scale 2.4
 output DP-2 mode 3840x2160@60Hz pos 1600 0 scale 2.4 transform 90
 
 # ============================================================================
@@ -49,9 +49,6 @@ exec_always sh -c 'sleep 0.5 && fcitx5 -d'
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec systemctl --user restart xdg-desktop-portal
-
-# Start waybar
-exec waybar
 
 # ============================================================================
 # WINDOW APPEARANCE
@@ -155,6 +152,10 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+# Pin the primary workspace to the primary display.
+workspace $ws1 output DP-1
+workspace $ws2 output DP-2
 
 # Switch to workspace
 bindsym $mod+1 workspace number $ws1
