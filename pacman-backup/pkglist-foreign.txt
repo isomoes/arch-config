@@ -1,5 +1,6 @@
 adobe-source-han-mono-cn-fonts
 adspower-global
+amf-amdgpu-pro
 antigravity
 bambustudio-bin
 bbdown-bin
@@ -11,10 +12,7 @@ google-chrome
 i3bar-river
 ida-free
 kiro-ide
-lib32-nvidia-580xx-utils
 netease-cloud-music-gtk-bin
-nvidia-580xx-dkms
-nvidia-580xx-utils
 openai-codex-desktop
 protonup-qt
 python-translate-shell

@@ -3,6 +3,7 @@ adobe-source-code-pro-fonts
 adobe-source-han-sans-cn-fonts
 adobe-source-han-serif-cn-fonts
 amd-ucode
+amdgpu_top
 archlinuxcn-keyring
 base
 base-devel
@@ -56,8 +57,9 @@ kdenlive
 kitty
 lazygit
 less
+lib32-vulkan-radeon
 libpulse
-libva-nvidia-driver
+libva-utils
 linux
 linux-firmware
 linux-headers
@@ -136,6 +138,7 @@ typst
 unzip
 uv
 vim
+vulkan-radeon
 waybar
 wget
 wireless_tools
