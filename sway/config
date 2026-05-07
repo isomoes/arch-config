@@ -22,11 +22,11 @@ output DP-2 mode 3840x2160@60Hz pos 1600 0 scale 2.4 transform 90
 # INPUT CONFIGURATION
 # ============================================================================
 
-# Magic Mouse configuration
-input "pointer-76-803-Jiahao___s_Magic_Mouse" {
-    pointer_accel -0.6
+# Logitech PRO X SUPERLIGHT 2c
+input "1133:49311:Logitech_PRO_X_SUPERLIGHT_2c" {
+    pointer_accel -0.3
     accel_profile flat
-    natural_scroll enabled
+    natural_scroll disabled
 }
 
 # Keyboard repeat rate (300ms delay, 50 repeats per second)
