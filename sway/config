@@ -22,7 +22,14 @@ output DP-2 mode 3840x2160@60Hz pos 1600 0 scale 2.4 transform 90
 # INPUT CONFIGURATION
 # ============================================================================
 
-# Logitech PRO X SUPERLIGHT 2c
+# Logitech PRO X 2c (2.4GHz dongle)
+input "1133:16567:Logitech_PRO_X_2c" {
+    pointer_accel -0.3
+    accel_profile flat
+    natural_scroll disabled
+}
+
+# Logitech PRO X SUPERLIGHT 2c (wired)
 input "1133:49311:Logitech_PRO_X_SUPERLIGHT_2c" {
     pointer_accel -0.3
     accel_profile flat
