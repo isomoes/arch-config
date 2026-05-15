@@ -15,7 +15,7 @@ font pango:monospace 10
 # Configure displays (Wayland native resolution with scaling)
 # DP-1: 3840x2160@120Hz, scale 2.4, position 0,0 (primary) -> logical 1600x900
 # DP-2: 3840x2160@60Hz, scale 2.4, rotated 90°, position 1600,0 -> logical 900x1600
-output DP-1 mode 3840x2160@120Hz pos 0 0 scale 2.4
+output DP-1 mode 3840x2160@60Hz pos 0 0 scale 2.4
 output DP-2 mode 3840x2160@60Hz pos 1600 0 scale 2.4 transform 90
 
 # ============================================================================
