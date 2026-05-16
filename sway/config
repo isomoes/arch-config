@@ -22,6 +22,15 @@ output DP-2 mode 3840x2160@60Hz pos 1600 0 scale 2.4 transform 90
 # INPUT CONFIGURATION
 # ============================================================================
 
+# Default for all pointer devices — applies even when the mouse enumerates
+# under a different identifier (USB hub, KVM, USB-IP, re-plug, etc.).
+# Device-specific blocks below can override per-mouse if needed.
+input type:pointer {
+    pointer_accel -0.3
+    accel_profile flat
+    natural_scroll disabled
+}
+
 # Logitech PRO X 2c (2.4GHz dongle)
 input "1133:16567:Logitech_PRO_X_2c" {
     pointer_accel -0.3
