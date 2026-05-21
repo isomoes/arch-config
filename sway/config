@@ -13,10 +13,12 @@ font pango:monospace 10
 # ============================================================================
 
 # Configure displays (Wayland native resolution with scaling)
-# DP-1: 3840x2160@120Hz, scale 2.4, position 0,0 (primary) -> logical 1600x900
-# DP-2: 3840x2160@60Hz, scale 2.4, rotated 90°, position 1600,0 -> logical 900x1600
-output DP-1 mode 3840x2160@60Hz pos 0 0 scale 2.4
-output DP-2 mode 3840x2160@60Hz pos 1600 0 scale 2.4 transform 90
+# DP-1: 3840x2160@60Hz, scale 2.0, position 0,0 (primary) -> logical 1920x1080
+# DP-2: 3840x2160@60Hz, scale 2.0, rotated 90°, position 1920,0 -> logical 1080x1920
+# Integer scale (2.0) eliminates fractional-scaling overhead — fixes
+# Chrome fullscreen scroll stutter at the source.
+output DP-1 mode 3840x2160@60Hz pos 0 0 scale 2.0
+output DP-2 mode 3840x2160@60Hz pos 1920 0 scale 2.0 transform 90
 
 # ============================================================================
 # INPUT CONFIGURATION
