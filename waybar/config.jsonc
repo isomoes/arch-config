@@ -23,8 +23,9 @@
     "max-length": 10,
   },
   "tray": {
-    // "icon-size": 21,
-    "spacing": 10,
+    "icon-size": 18,
+    "spacing": 8,
+    "show-passive-items": true,
   },
   "clock": {
     // "timezone": "America/New_York",
