@@ -1,0 +1,19 @@
+[Unit]
+Description=IAgent Web Terminal Coding Agent
+After=network.target graphical-session.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h
+Environment="PATH=%h/.bun/bin:%h/.local/bin:%h/.nvm/versions/node/v24.12.0/bin:/usr/local/bin:/usr/bin"
+Environment="HOST=127.0.0.1"
+Environment="PORT=4600"
+Environment="IAGENT_AGENT_CMD=claude"
+Environment="TERM=xterm-256color"
+Environment="COLORTERM=truecolor"
+ExecStart=%h/.bun/bin/iagent
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
