@@ -3,7 +3,7 @@
 	url = git@github.com:jiahaoxiang2000/hypr-config.git
 [submodule "nvim"]
 	path = nvim
-	url = https://github.com/jiahaoxiang2000/nvim-config.git
+	url = https://github.com/isomoes/nvim-config.git
 [submodule "Code/User"]
 	path = Code/User
 	url = git@github.com:jiahaoxiang2000/vscode-config.git
