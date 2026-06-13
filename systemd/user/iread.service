@@ -1,0 +1,15 @@
+[Unit]
+Description=IRead Web Server
+After=network.target graphical-session.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h
+Environment="PORT=9999"
+Environment="PATH=%h/.bun/bin:%h/.local/bin:%h/.nvm/versions/node/v24.12.0/bin:/usr/local/bin:/usr/bin"
+ExecStart=%h/.nvm/versions/node/v24.12.0/bin/npx @isomoes/iread
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
