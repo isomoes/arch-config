@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>iread subscriptions</title>
+    <dateCreated>Sun, 14 Jun 2026 12:35:16 GMT</dateCreated>
+  </head>
+  <body>
+    <outline type="rss" text="Agili 的 Hacker Podcast" title="Agili 的 Hacker Podcast" xmlUrl="https://hacker-news.agi.li/rss.xml" htmlUrl="https://hacker-podcast.agi.li" />
+    <outline type="rss" text="Anthropic Engineering" title="Anthropic Engineering" xmlUrl="http://43.128.87.171:5000/anthropic/engineering" htmlUrl="https://www.anthropic.com/engineering" />
+    <outline type="rss" text="Anthropic(@AnthropicAI)" title="Anthropic(@AnthropicAI)" xmlUrl="https://api.xgo.ing/rss/user/fc28a211471b496682feff329ec616e5" htmlUrl="https://x.com/AnthropicAI" />
+    <outline type="rss" text="Claude Blog" title="Claude Blog" xmlUrl="http://43.128.87.171:5000/claude/blog" htmlUrl="https://claude.com/blog" />
+    <outline type="rss" text="Isomoes Blog" title="Isomoes Blog" xmlUrl="https://isomoes.github.io/en/feed.xml" htmlUrl="https://isomoes.github.io/en/blog" />
+    <outline type="rss" text="Latent.Space" title="Latent.Space" xmlUrl="https://www.latent.space/feed" htmlUrl="https://www.latent.space" />
+    <outline type="rss" text="OpenAI News" title="OpenAI News" xmlUrl="http://43.128.87.171:5000/openai/news" htmlUrl="https://openai.com/news/" />
+    <outline type="rss" text="OpenAI(@OpenAI)" title="OpenAI(@OpenAI)" xmlUrl="https://api.xgo.ing/rss/user/0c0856a69f9f49cf961018c32a0b0049" htmlUrl="https://x.com/OpenAI" />
+    <outline type="rss" text="The GitHub Blog" title="The GitHub Blog" xmlUrl="https://github.blog/feed/" htmlUrl="https://github.blog/" />
+    <outline type="rss" text="The Rundown AI" title="The Rundown AI" xmlUrl="https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml" htmlUrl="https://www.therundown.ai/" />
+    <outline type="rss" text="逛逛GitHub" title="逛逛GitHub" xmlUrl="https://wechat2rss.bestblogs.dev/feed/38be32e5376d852c13d3383e4d7a757fd9a55ff6.xml" htmlUrl="https://wechat2rss.bestblogs.dev/feed/38be32e5376d852c13d3383e4d7a757fd9a55ff6.xml" />
+  </body>
+</opml>

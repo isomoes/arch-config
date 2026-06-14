@@ -201,4 +201,6 @@ ikanban
 /Codex
 /chromium
 /inkscape
-/iread
+/iread/iread.db
+/iread/iread.db-shm
+/iread/iread.db-wal
