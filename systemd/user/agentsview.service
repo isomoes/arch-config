@@ -1,0 +1,14 @@
+[Unit]
+Description=AgentsView Session Viewer
+After=network.target graphical-session.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h
+Environment="PATH=%h/.bun/bin:%h/.local/bin:%h/.nvm/versions/node/v24.12.0/bin:/usr/local/bin:/usr/bin"
+ExecStart=/usr/bin/agentsview serve --host 127.0.0.1 --port 8585 --no-browser
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
