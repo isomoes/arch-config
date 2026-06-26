@@ -14,7 +14,7 @@ docker compose -f compose/<service>/compose.yaml up -d
 
 | Service | Image | Port | Replaces |
 | ------- | ----- | ---- | -------- |
-| [`iread/`](iread/) | `ghcr.io/isomoes/iread:latest` | `9999` | `systemd/user/iread.service` |
+| [`iread/`](iread/) | `ghcr.io/isomoes/iread:latest` | `127.0.0.1:9999` | `systemd/user/iread.service` |
 | [`agentsview/`](agentsview/) | `ghcr.io/kenn-io/agentsview:latest` | `127.0.0.1:8585` | `systemd/user/agentsview.service` |
 
 ### iread
