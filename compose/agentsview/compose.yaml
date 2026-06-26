@@ -1,0 +1,40 @@
+# agentsview — agent session viewer, managed via Docker Compose.
+#
+# Adapted from upstream docker-compose.prod.yaml
+# (https://github.com/kenn-io/agentsview). The container runs as root and keeps
+# its SQLite archive in the named `agentsview-data` volume (AGENTSVIEW_DATA_DIR
+# =/data); it re-indexes on startup from the read-only session mounts below, so
+# no archive migration is needed.
+#
+# Container equivalent of systemd/user/agentsview.service. Host port and bind
+# match that unit (127.0.0.1:8585), so it is a drop-in replacement. Cut over:
+#
+#   systemctl --user disable --now agentsview.service
+#   docker compose -f compose/agentsview/compose.yaml up -d   # http://127.0.0.1:8585
+#
+# Sources: only the agent dirs present on this host are mounted. `.forge` is
+# omitted (not installed); add a mount + *_DIR env if you start using it.
+services:
+  agentsview:
+    image: ghcr.io/kenn-io/agentsview:latest
+    container_name: agentsview
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8585:8080"
+    # agentsview only honors requests whose Host is in its allowlist, which is
+    # derived from the *container* port (8080). Because the host port differs
+    # (8585), the browser's Host is 127.0.0.1:8585 and every /api/* call would
+    # 403 without this. --public-url adds the real browser origin to the set.
+    command: ["--host", "0.0.0.0", "--no-browser", "--public-url", "http://127.0.0.1:8585"]
+    environment:
+      CLAUDE_PROJECTS_DIR: /agents/claude
+      CODEX_SESSIONS_DIR: /agents/codex
+      OPENCODE_DIR: /agents/opencode
+    volumes:
+      - agentsview-data:/data
+      - "${HOME}/.claude/projects:/agents/claude:ro"
+      - "${HOME}/.codex/sessions:/agents/codex:ro"
+      - "${HOME}/.local/share/opencode:/agents/opencode:ro"
+
+volumes:
+  agentsview-data:

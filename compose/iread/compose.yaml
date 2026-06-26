@@ -1,0 +1,26 @@
+# iread — feed reader web server, managed via Docker Compose.
+#
+# Official multi-arch image (amd64 + arm64), runs as the unprivileged `node`
+# user (uid 1000) that ships in the image — matches the host uid, so the
+# bind-mounted data below needs no chown.
+#
+# This is the container equivalent of systemd/user/iread.service. The host
+# port is kept at 9999 (the port that service used) so this is a drop-in
+# replacement. Before `up`, stop the systemd unit so it does not hold port
+# 9999 or the SQLite database:
+#
+#   systemctl --user disable --now iread.service
+#   docker compose -f compose/iread/compose.yaml up -d
+#
+# Data persistence: ~/.config/iread already holds iread.db + feeds.opml, which
+# map directly onto the image's /data/iread.db and /data/feeds.opml — so the
+# container reuses your existing subscriptions and read state.
+services:
+  iread:
+    image: ghcr.io/isomoes/iread:latest
+    container_name: iread
+    ports:
+      - "9999:8787"
+    volumes:
+      - "${HOME}/.config/iread:/data"
+    restart: unless-stopped
