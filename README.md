@@ -1,39 +1,29 @@
 # Linux Desktop Config
 
-Personal configuration files for Linux desktop setup. Shell (zsh) configuration is maintained in the parent repository: [linux-config](https://github.com/jiahaoxiang2000/linux-config)
+Personal configuration files for Linux desktop setup. Shell (zsh) configuration is maintained in the parent repository: [linux-config](https://github.com/isomoes/linux-config)
 
-## Desktop Environment
+## Applications
 
-| Application | Configuration        | Description            |
-| ----------- | -------------------- | ---------------------- |
-| Sway        | [`sway/`](sway/)     | Wayland window manager |
-| Waybar      | [`waybar/`](waybar/) | System status bar      |
-| Kitty       | [`kitty/`](kitty/)   | Terminal emulator      |
+| Category    | Application | Configuration                                                          | Description                    |
+| ----------- | ----------- | ---------------------------------------------------------------------- | ------------------------------ |
+| Desktop     | Sway        | [`sway/`](sway/)                                                       | Wayland window manager         |
+| Desktop     | Waybar      | [`waybar/`](waybar/)                                                   | System status bar              |
+| Desktop     | Kitty       | [`kitty/`](kitty/)                                                     | Terminal emulator              |
+| Development | Zsh         | [`.zshrc`](https://github.com/isomoes/linux-config/blob/master/.zshrc) | Shell (in parent repo)         |
+| Development | Neovim      | [`nvim/`](https://github.com/isomoes/nvim-config)                      | Text editor (git submodule)    |
+| Development | Git         | [`git/`](git/)                                                         | Version control settings       |
+| Development | Lazygit     | -                                                                      | Terminal UI for git            |
+| Media       | OBS Studio  | [`obs-studio/`](obs-studio/)                                           | Video recording                |
+| Media       | mvideo      | [`mvideo`](https://github.com/isomoes-video/mvideo)                    | Script-based video editor      |
+| Media       | MPV         | -                                                                      | Video player                   |
+| Media       | fcitx5      | -                                                                      | Chinese input method           |
+| Media       | Chrome      | -                                                                      | Web browser                    |
+| Services    | iread       | [`compose/iread/`](compose/iread/)                                     | RSS reader (SQLite + OPML)     |
+| Services    | agentsview  | [`compose/agentsview/`](compose/agentsview/)                           | Read-only agent session viewer |
+| Keybindings | Surfingkeys | [`Surfingkeys-conf.js`](Surfingkeys-conf.js)                           | Browser vim keybindings        |
+| Keybindings | Xremap      | [`xremap/`](xremap/)                                                   | System-wide key remapping      |
 
-## Development
-
-| Application | Configuration                                                            | Description                 |
-| ----------- | ------------------------------------------------------------------------ | --------------------------- |
-| Zsh         | [`.zshrc`](https://github.com/jiahaoxiang2000/linux-config/blob/master/.zshrc) | Shell (in parent repo)      |
-| Neovim      | [`nvim/`](https://github.com/jiahaoxiang2000/nvim-config)                | Text editor (git submodule) |
-| Git         | [`git/`](git/)                                                           | Version control settings    |
-
-## Media & Utilities
-
-| Application | Configuration                | Description          |
-| ----------- | ---------------------------- | -------------------- |
-| OBS Studio  | [`obs-studio/`](obs-studio/) | Video recording      |
-| Kdenlive    | -                            | Video editing        |
-| MPV         | -                            | Video player         |
-| fcitx5      | -                            | Chinese input method |
-| Firefox     | -                            | Web browser          |
-
-## Global Vim Keybindings
-
-| Application | Configuration                                | Description               |
-| ----------- | -------------------------------------------- | ------------------------- |
-| Surfingkeys | [`Surfingkeys-conf.js`](Surfingkeys-conf.js) | Browser vim keybindings   |
-| Xremap      | [`xremap/`](xremap/)                         | System-wide key remapping |
+> Docker Compose service stacks (`Services`) — see [`compose/`](compose/) for setup and cutover notes.
 
 ## Notes
 
@@ -41,5 +31,5 @@ Personal configuration files for Linux desktop setup. Shell (zsh) configuration 
 
 ## References
 
-- [linux-config](https://github.com/jiahaoxiang2000/linux-config) - Parent repository with zsh and system configs
+- [linux-config](https://github.com/isomoes/linux-config) - Parent repository with zsh and system configs
 - [gnuunixchad/dotfiles](https://github.com/gnuunixchad/dotfiles)
