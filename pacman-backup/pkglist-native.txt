@@ -22,6 +22,7 @@ docker-compose
 dunst
 earlyoom
 efibootmgr
+elan-lean
 emacs-wayland
 fastfetch
 fcitx5
@@ -30,6 +31,7 @@ fcitx5-configtool
 fcitx5-gtk
 fcitx5-pinyin-zhwiki
 fd
+fig2dev
 firefox
 firefox-tridactyl
 firefox-tridactyl-native
@@ -44,11 +46,13 @@ github-cli
 gnome-keyring
 godot
 gst-plugin-pipewire
+gtkwave
 hplip
 htop
 hyprshot
 i3status-rust
 iftop
+iverilog
 iwd
 jdk11-openjdk
 jdk8-openjdk
@@ -59,6 +63,7 @@ lazygit
 less
 lib32-vulkan-radeon
 libpulse
+libreoffice-still
 libva-utils
 linux
 linux-firmware
@@ -93,6 +98,7 @@ platformio-core
 platformio-core-udev
 playerctl
 protontricks
+pstoedit
 python
 python-pip
 python-pipx
@@ -137,6 +143,7 @@ ttf-liberation
 typst
 unzip
 uv
+verilator
 vim
 vulkan-radeon
 waybar
@@ -154,7 +161,7 @@ xdg-utils
 xorg-server
 xorg-xinit
 yazi
-zed
+yosys
 zip
 zoxide
 zram-generator
