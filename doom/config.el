@@ -38,6 +38,9 @@
 ;; Local theme in $DOOMDIR/themes/ — a 1:1 port of the nvim
 ;; `github_dark_colorblind' colorscheme (see github-dark-colorblind-theme.el).
 (setq doom-theme 'github-dark-colorblind)
+;; Trust all themes so `load-theme' never prompts; keeps the safe-theme hash out
+;; of the (gitignored) custom.el. Fine for a personal single-user config.
+(setq custom-safe-themes t)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
