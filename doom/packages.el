@@ -51,3 +51,12 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+
+;; GitHub's official color schemes ported to Emacs (no MELPA release). Provides
+;; the `github-dark', `github-dark-dimmed' and `github-light' themes. Used as the
+;; base for the nvim `github_dark_colorblind' look (see config.el face overrides).
+(package! github-emacs-theme
+  :recipe (:host github :repo "ladroid/github-emacs-theme"))
+
+;; Required by the themes above for palette generation.
+(package! autothemer)

@@ -205,3 +205,4 @@ ikanban
 /iread/iread.db-shm
 /iread/iread.db-wal
 /emacs
+doom/custom.el
