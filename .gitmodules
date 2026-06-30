@@ -16,3 +16,6 @@
 [submodule "opencode"]
 	path = opencode
 	url = https://github.com/jiahaoxiang2000/opencode-config.git
+[submodule "emacs"]
+	path = emacs
+	url = https://github.com/isomoes/emacs-conf.git
