@@ -204,5 +204,10 @@ ikanban
 /iread/iread.db
 /iread/iread.db-shm
 /iread/iread.db-wal
-/emacs
-doom/custom.el
+
+# Emacs — vanilla config at ~/.config/emacs: track source, ignore generated state
+# (elpa/, eln-cache/, backups/, auto-save/, custom.el, var/, transient/, ...)
+/emacs/*
+!/emacs/init.el
+!/emacs/early-init.el
+!/emacs/themes/
