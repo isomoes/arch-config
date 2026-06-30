@@ -204,3 +204,8 @@ ikanban
 /iread/iread.db
 /iread/iread.db-shm
 /iread/iread.db-wal
+
+### compose secrets ###
+# Per-service Docker Compose env files hold credentials (e.g. the Kookeey
+# upstream URL). The committed .env.example in each service dir is the template.
+compose/**/.env

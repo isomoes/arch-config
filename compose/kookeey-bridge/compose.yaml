@@ -1,0 +1,40 @@
+# kookeey-bridge — local HTTP proxy that forwards to a Kookeey SOCKS5 gateway,
+# managed via Docker Compose.
+#
+# gost (GO Simple Tunnel; image entrypoint /bin/gost) listens as a plain HTTP
+# proxy on 127.0.0.1:10011 and forwards every request through the authenticated
+# upstream SOCKS5 endpoint at gate.kookeey.info. Point anything that should
+# egress via Kookeey at this proxy, e.g.
+#
+#   export HTTPS_PROXY=http://127.0.0.1:10011 HTTP_PROXY=http://127.0.0.1:10011
+#
+# Networking: this host's Docker *bridge* network has no outbound egress — a
+# host-level routing quirk where forwarded/NAT'd container traffic never leaves,
+# even though the host itself reaches the internet fine (restarting dockerd does
+# not fix it). So gost runs with network_mode: host and reaches the Kookeey
+# gateway through the working host network. Host mode ignores `ports:`, so the
+# loopback-only bind lives in -L itself (127.0.0.1:10011) — the proxy stays
+# reachable only from this host, never the LAN.
+#
+# Credentials: the upstream URL carries the Kookeey username/password, so it is
+# NOT in this file. It lives in compose/kookeey-bridge/.env (gitignored) as
+# KOOKEEY_UPSTREAM, which Compose auto-loads from the compose file's own
+# directory (it is the default project dir even when started with -f from ~/.config).
+# Set it up once:
+#
+#   cd compose/kookeey-bridge && cp .env.example .env && $EDITOR .env
+#   docker compose -f compose/kookeey-bridge/compose.yaml up -d   # http://127.0.0.1:10011
+#
+# KOOKEEY_UPSTREAM format (PORT is the gateway port Kookeey assigned you):
+#   socks5://USERNAME:PASSWORD@gate.kookeey.info:PORT
+services:
+  kookeey-bridge:
+    image: gogost/gost
+    container_name: kookeey-bridge
+    restart: unless-stopped
+    network_mode: host
+    command:
+      - "-L=http://127.0.0.1:10011"   # loopback-only HTTP proxy (host netns; no `ports:` in host mode)
+      # Forward to the Kookeey SOCKS5 gateway. Creds come from .env, never git;
+      # :? makes compose abort with this message if .env is missing/unset.
+      - "-F=${KOOKEEY_UPSTREAM:?set KOOKEEY_UPSTREAM in compose/kookeey-bridge/.env (see .env.example)}"
