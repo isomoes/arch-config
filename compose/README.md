@@ -17,6 +17,7 @@ docker compose -f compose/<service>/compose.yaml up -d
 | [`iread/`](iread/) | `ghcr.io/isomoes/iread:latest` | `127.0.0.1:9999` | `systemd/user/iread.service` |
 | [`agentsview/`](agentsview/) | `ghcr.io/kenn-io/agentsview:latest` | `127.0.0.1:8585` | `systemd/user/agentsview.service` |
 | [`kookeey-bridge/`](kookeey-bridge/) | `gogost/gost` | `127.0.0.1:10011` | — (new) |
+| [`frpc/`](frpc/) | `snowdreamtech/frpc` | host netns (dials out to `frps`) | — (new) |
 
 ### iread
 
@@ -99,3 +100,37 @@ Kookeey gateway directly. Because host mode ignores `ports:`, the loopback-only
 bind lives in `-L=http://127.0.0.1:10011`, keeping the proxy reachable only from
 this host. If bridge egress is ever repaired, revert to `ports:` +
 `-L=http://:10011` to match the other stacks.
+
+### frpc
+
+An [frp](https://github.com/fatedier/frp) **client** that reverse-tunnels this
+host's SSH port out through a public `frps` server, so you can `ssh` back into
+this NAT'd/firewalled machine from anywhere. frpc dials the `frps` server and
+asks it to listen on `remotePort`; connections there are forwarded back down the
+tunnel to `127.0.0.1:22` here. Set it up once, then start it:
+
+```sh
+cd compose/frpc && cp .env.example .env && $EDITOR .env   # frps addr, token, remote port
+docker compose -f compose/frpc/compose.yaml up -d
+# then from elsewhere:  ssh -p <FRP_SSH_REMOTE_PORT> <user>@<FRP_SERVER_ADDR>
+```
+
+Like `kookeey-bridge`, this stack uses `network_mode: host` — not for a
+published port (frpc dials out, it never listens on the LAN) but because this
+host's Docker bridge network has no outbound egress, so a bridged frpc could
+never reach the `frps` server. Host mode also lets it reach the host's own sshd
+directly at `127.0.0.1:22`.
+
+Config split, same convention as the other stacks: the committed
+[`frpc.toml`](frpc/frpc.toml) carries only the structure, referencing every
+deployment value via frp's `{{ .Envs.* }}` env templating; the real values
+(`frps` address, **auth token**, remote port) live in the gitignored
+`compose/frpc/.env` (matched by `compose/**/.env`) and are injected into the
+container by `compose.yaml`, where frpc renders them at startup. Required vars
+are `:?`-guarded, so `up` aborts naming the missing one rather than starting a
+misconfigured tunnel. TOML config needs frp ≥ v0.52, which the `:latest` image
+satisfies.
+
+**Security:** this publishes a route to your SSH port on the public `frps` host
+(`<FRP_SERVER_ADDR>:<FRP_SSH_REMOTE_PORT>`). Use key-only auth and a strong,
+unique `frps` token.

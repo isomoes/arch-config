@@ -1,0 +1,29 @@
+# frpc client config — reverse-tunnels this host's SSH (127.0.0.1:22) out through
+# a public frps server. Managed by compose/frpc/compose.yaml.
+#
+# Secrets are NOT stored here. Every deployment-specific value below is pulled
+# from the container's environment via frp's Go-template support
+# ({{ .Envs.NAME }}); those env vars come from compose/frpc/.env (gitignored)
+# through compose.yaml. frp renders the templates automatically when it loads
+# this file. Numeric fields are deliberately left unquoted so they render to
+# valid TOML integers.
+serverAddr = "{{ .Envs.FRP_SERVER_ADDR }}"
+serverPort = {{ .Envs.FRP_SERVER_PORT }}
+
+# Keep reconnecting instead of exiting if frps is unreachable at startup (the
+# default, loginFailExit = true, would exit on the first failure and leave the
+# tunnel down until Docker's restart policy churned it back up).
+loginFailExit = false
+
+# frpc and frps must share the same token (the frps side's auth.token).
+auth.method = "token"
+auth.token = "{{ .Envs.FRP_TOKEN }}"
+
+# Expose the host's sshd. Once up, connect from anywhere with:
+#   ssh -p <FRP_SSH_REMOTE_PORT> <user>@<FRP_SERVER_ADDR>
+[[proxies]]
+name = "ssh"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 22
+remotePort = {{ .Envs.FRP_SSH_REMOTE_PORT }}
