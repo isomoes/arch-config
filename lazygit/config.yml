@@ -1,0 +1,38 @@
+# ── GitHub Dark (colorblind) ────────────────────────────────────────
+# 1:1 with emacs/themes/github-dark-colorblind-theme.el (a port of nvim
+# github_dark_colorblind).  Additions are BLUE, deletions ORANGE.
+# Diff line colors live in git config ([color "diff"] in git/config) —
+# lazygit renders `git diff --color=always` output directly.
+gui:
+  theme:
+    defaultFgColor:
+      - '#c9d1d9' # gh-fg
+    activeBorderColor:
+      - '#58a6ff' # gh-blue-br — focused / info
+      - bold
+    inactiveBorderColor:
+      - '#30363d' # gh-border — window separators
+    searchingActiveBorderColor:
+      - '#ec8e2c' # gh-orange — isearch
+      - bold
+    optionsTextColor:
+      - '#79c0ff' # gh-blue
+    selectedLineBgColor:
+      - '#1c3d6a' # gh-sel — PmenuSel
+    inactiveViewSelectedLineBgColor:
+      - '#161b22' # gh-bg-hl — CursorLine
+    cherryPickedCommitFgColor:
+      - '#79c0ff' # gh-blue
+    cherryPickedCommitBgColor:
+      - '#1c3d6a' # gh-sel
+    markedBaseCommitFgColor:
+      - '#c9d1d9' # gh-fg
+    markedBaseCommitBgColor:
+      - '#8d7230' # gh-search
+    unstagedChangesColor:
+      - '#d47616' # gh-orange-dk — the theme's "red"
+  authorColors:
+    '*': '#fdac54' # gh-orange-lt — magit-log-author
+  # branchColorPatterns:
+  #   '.*': '#79c0ff' # gh-blue — magit-branch-local; uncomment to replace
+  #                   # lazygit's green/yellow/red branch-recency colors

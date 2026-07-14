@@ -20,3 +20,14 @@
 [mergetool]
 	prompt = false
 	keepBackup = false
+# GitHub Dark (colorblind): additions blue, deletions orange —
+# matches emacs/nvim github_dark_colorblind; lazygit inherits these.
+[color "diff"]
+	new = "#58a6ff"
+	old = "#d47616"
+	frag = "#d2a8ff"
+	func = "#d2a8ff"
+	meta = "#c9d1d9 bold"
+	context = "#8b949e"
+	commit = "#d29922"
+	whitespace = "#d47616 reverse"
