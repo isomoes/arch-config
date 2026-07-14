@@ -97,7 +97,7 @@ output * bg #002b36 solid_color
 # ============================================================================
 
 # Start terminal
-bindsym $mod+t exec kitty 
+bindsym $mod+t exec foot
 
 # Application launcher (rofi/wmenu with fcitx5 environment)
 bindsym $mod+space exec env GTK_IM_MODULE=fcitx QT_IM_MODULE=fcitx XMODIFIERS=@im=fcitx rofi -show drun -show-icons
