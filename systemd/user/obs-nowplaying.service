@@ -1,0 +1,10 @@
+[Unit]
+Description=Write current MPRIS song to a file for OBS
+After=graphical-session.target
+
+[Service]
+ExecStart=%h/.local/bin/obs-nowplaying
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
