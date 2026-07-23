@@ -19,6 +19,18 @@ docker compose -f compose/<service>/compose.yaml up -d
 | [`kookeey-bridge/`](kookeey-bridge/) | `gogost/gost` | `127.0.0.1:10011` | — (new) |
 | [`frpc/`](frpc/) | `snowdreamtech/frpc` | host netns (dials out to `frps`) | — (new) |
 
+## Updating images
+
+Pull and deploy a new image manually with:
+
+```sh
+docker compose -f compose/<service>/compose.yaml pull
+docker compose -f compose/<service>/compose.yaml up -d
+```
+
+The running container is left untouched if the pull fails. Run the explicit
+`pull` command above whenever you want to check for and install an update.
+
 ### iread
 
 The image stores its SQLite db and OPML mirror in `/data`; the compose file
@@ -52,7 +64,7 @@ docker compose -f compose/agentsview/compose.yaml up -d   # http://127.0.0.1:858
 ```
 
 Gotcha baked into the compose file: agentsview only honors API requests whose
-`Host` is in an allowlist derived from its **container** port (10011). Because the
+`Host` is in an allowlist derived from its **container** port (8080). Because the
 host port differs (8585), every `/api/*` call 403s unless the server is started
 with `--public-url http://127.0.0.1:8585` to register the real browser origin.
 Add a source dir by mounting it read-only under `/agents/<name>` and setting the
