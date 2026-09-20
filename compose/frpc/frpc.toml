@@ -1,5 +1,5 @@
-# frpc client config — reverse-tunnels this host's SSH (127.0.0.1:22) out through
-# a public frps server. Managed by compose/frpc/compose.yaml.
+# frpc client config — tunnels this host's OpenCode API (127.0.0.1:4097) to
+# a remote frps server for Nginx. Managed by compose/frpc/compose.yaml.
 #
 # Secrets are NOT stored here. Every deployment-specific value below is pulled
 # from the container's environment via frp's Go-template support
@@ -19,11 +19,11 @@ loginFailExit = false
 auth.method = "token"
 auth.token = "{{ .Envs.FRP_TOKEN }}"
 
-# Expose the host's sshd. Once up, connect from anywhere with:
-#   ssh -p <FRP_SSH_REMOTE_PORT> <user>@<FRP_SERVER_ADDR>
+# Nginx on the remote host connects to 127.0.0.1:remotePort.
+# Block public access to remotePort on the remote server.
 [[proxies]]
-name = "ssh"
+name = "ikanban"
 type = "tcp"
 localIP = "127.0.0.1"
-localPort = 22
-remotePort = {{ .Envs.FRP_SSH_REMOTE_PORT }}
+localPort = 4097
+remotePort = {{ .Envs.FRP_IKANBAN_REMOTE_PORT }}

@@ -1,18 +1,16 @@
-# frpc — frp client that reverse-tunnels this host's SSH port out through a
-# public frps server, managed via Docker Compose.
+# frpc — tunnels this host's OpenCode API to a remote frps server for Nginx.
 #
 # frp (Fast Reverse Proxy) has two halves: frps runs on a box with a public IP;
 # frpc (this stack) dials OUT to it and asks it to expose a chosen remotePort.
-# Anything that connects to frps:remotePort is tunneled back down to localPort 22
-# here — so you can ssh into this NAT'd/firewalled machine from anywhere:
-#
-#   ssh -p <FRP_SSH_REMOTE_PORT> <user>@<FRP_SERVER_ADDR>
+# Connections to frps:remotePort are forwarded to 127.0.0.1:4097 here.
+# On the remote server, Nginx proxies to 127.0.0.1:remotePort over HTTP and
+# exposes HTTPS. Block public access to remotePort with the remote firewall.
 #
 # Networking: like kookeey-bridge, this runs with network_mode: host. Not for a
 # published port (frpc dials out, it never listens on the LAN) but because this
 # host's Docker *bridge* network has no outbound egress — a bridged frpc could
-# never reach the frps server. Host mode also lets it reach the host's own sshd
-# directly at 127.0.0.1:22. (This is how snowdreamtech's own docs run it too:
+# never reach the frps server. Host mode also lets it reach the host's API
+# directly at 127.0.0.1:4097. (This is how snowdreamtech's own docs run it too:
 # `docker run --network host ... snowdreamtech/frpc`.)
 #
 # Config split (same convention as the other stacks): the committed frpc.toml
@@ -44,4 +42,4 @@ services:
       FRP_SERVER_ADDR: "${FRP_SERVER_ADDR:?set FRP_SERVER_ADDR in compose/frpc/.env (see .env.example)}"
       FRP_SERVER_PORT: "${FRP_SERVER_PORT:-7000}"
       FRP_TOKEN: "${FRP_TOKEN:?set FRP_TOKEN in compose/frpc/.env (see .env.example)}"
-      FRP_SSH_REMOTE_PORT: "${FRP_SSH_REMOTE_PORT:?set FRP_SSH_REMOTE_PORT in compose/frpc/.env (see .env.example)}"
+      FRP_IKANBAN_REMOTE_PORT: "${FRP_IKANBAN_REMOTE_PORT:-14097}"

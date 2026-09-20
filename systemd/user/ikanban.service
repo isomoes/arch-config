@@ -5,8 +5,7 @@ After=network.target graphical-session.target
 [Service]
 Type=simple
 Environment="PATH=%h/.bun/bin:%h/.local/bin:%h/.nvm/versions/node/v24.12.0/bin:/usr/local/bin:/usr/bin"
-EnvironmentFile=%h/.config/opencode/ikanban.env
-ExecStart=/usr/bin/zsh -lc 'source %h/.zshrc; set -a; source %h/.token; set +a; export BASH_ENV=%h/.config/systemd/user/ikanban.bashenv; dsh --profile ikanban --port 9090'
+ExecStart=/usr/bin/zsh -lc 'source %h/.zshrc; set -a; source %h/.token; set +a; exec %h/.opencode/bin/opencode serve --port 4097 --cors https://isomoes.github.io'
 Restart=on-failure
 RestartSec=5
 
