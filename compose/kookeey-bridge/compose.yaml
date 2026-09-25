@@ -1,7 +1,8 @@
 # kookeey-bridge — local proxies that forward to Kookeey SOCKS5 gateways,
 # managed via Docker Compose.
 #
-# Two gost services listen on 127.0.0.1:10011 (HTTP) and :10012 (SOCKS5).
+# Three gost services listen on 127.0.0.1:10011 (HTTP), :10012 (SOCKS5),
+# and :10013 (HTTP/SOCKS5 with automatic protocol detection).
 # Each forwards through its own authenticated SOCKS5 endpoint at
 # gate.kookeey.info. Point anything that should egress via Kookeey at one of
 # these proxies, e.g.
@@ -18,8 +19,8 @@
 #
 # Credentials: the upstream URLs carry the Kookeey username/password, so they
 # are NOT in this file. They live in compose/kookeey-bridge/.env (gitignored) as
-# KOOKEEY_UPSTREAM and KOOKEEY_UPSTREAM_10012. Compose auto-loads this file from
-# the compose file's own directory.
+# KOOKEEY_UPSTREAM, KOOKEEY_UPSTREAM_10012 and KOOKEEY_UPSTREAM_10013.
+# Compose auto-loads this file from the compose file's own directory.
 # Set it up once:
 #
 #   cd compose/kookeey-bridge && cp .env.example .env && $EDITOR .env
@@ -47,3 +48,12 @@ services:
     command:
       - "-L=socks5://127.0.0.1:10012"
       - "-F=${KOOKEEY_UPSTREAM_10012:?set KOOKEEY_UPSTREAM_10012 in compose/kookeey-bridge/.env (see .env.example)}"
+
+  kookeey-bridge-10013:
+    image: gogost/gost
+    container_name: kookeey-bridge-10013
+    restart: unless-stopped
+    network_mode: host
+    command:
+      - "-L=auto://127.0.0.1:10013"
+      - "-F=${KOOKEEY_UPSTREAM_10013:?set KOOKEEY_UPSTREAM_10013 in compose/kookeey-bridge/.env (see .env.example)}"

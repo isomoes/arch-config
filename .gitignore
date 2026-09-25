@@ -225,3 +225,4 @@ compose/**/.env
 /winapps/oem
 /winapps/winapps.conf
 /freerdp/server
+/samba/hpm125.auth
