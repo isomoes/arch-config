@@ -5,6 +5,9 @@ After=network.target graphical-session.target
 [Service]
 Type=simple
 Environment="PATH=%h/.bun/bin:%h/.local/bin:%h/.nvm/versions/node/v24.12.0/bin:/usr/local/bin:/usr/bin"
+Environment="HTTP_PROXY=http://127.0.0.1:10013" "HTTPS_PROXY=http://127.0.0.1:10013"
+Environment="http_proxy=http://127.0.0.1:10013" "https_proxy=http://127.0.0.1:10013"
+Environment="NO_PROXY=localhost,127.0.0.1,::1" "no_proxy=localhost,127.0.0.1,::1"
 ExecStart=/usr/bin/zsh -lc 'source %h/.zshrc; set -a; source %h/.token; set +a; exec %h/.opencode/bin/opencode serve --port 4097 --cors https://isomoes.github.io'
 Restart=on-failure
 RestartSec=5
