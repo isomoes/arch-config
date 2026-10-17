@@ -6,9 +6,8 @@
 #
 # This is the container equivalent of systemd/user/iread.service. The host
 # port is kept at 9999 (the port that service used) so this is a drop-in
-# replacement, and bound to 127.0.0.1 so it is reachable only from this host —
-# Docker's published ports otherwise bypass the host firewall and would expose
-# 9999 to the whole LAN. Before `up`, stop the systemd unit so it does not hold
+# replacement, using host networking and HOST=127.0.0.1 so it is reachable only
+# from this host. Before `up`, stop the systemd unit so it does not hold
 # port 9999 or the SQLite database:
 #
 #   systemctl --user disable --now iread.service
@@ -21,8 +20,10 @@ services:
   iread:
     image: ghcr.io/isomoes/iread:latest
     container_name: iread
-    ports:
-      - "127.0.0.1:9999:8787"
+    network_mode: host
+    environment:
+      PORT: "9999"
+      HOST: "127.0.0.1"
     volumes:
       - "${HOME}/.config/iread:/data"
     restart: unless-stopped
