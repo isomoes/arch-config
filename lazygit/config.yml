@@ -31,8 +31,8 @@ gui:
       - '#8d7230' # gh-search
     unstagedChangesColor:
       - '#d47616' # gh-orange-dk — the theme's "red"
-  authorColors:
-    '*': '#fdac54' # gh-orange-lt — magit-log-author
-  # branchColorPatterns:
-  #   '.*': '#79c0ff' # gh-blue — magit-branch-local; uncomment to replace
-  #                   # lazygit's green/yellow/red branch-recency colors
+    authorColors:
+      '*': '#fdac54' # gh-orange-lt — magit-log-author
+    # branchColorPatterns:
+    #   '.*': '#79c0ff' # gh-blue — magit-branch-local; uncomment to replace
+    #                   # lazygit's green/yellow/red branch-recency colors

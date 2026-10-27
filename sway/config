@@ -17,8 +17,8 @@ font pango:monospace 10
 # DP-2: 3840x2160@60Hz, scale 2.0, rotated 90°, position 1920,0 -> logical 1080x1920
 # Integer scale (2.0) eliminates fractional-scaling overhead — fixes
 # Chrome fullscreen scroll stutter at the source.
-output DP-1 mode 3840x2160@60Hz pos 0 0 scale 2.0
-output DP-2 mode 3840x2160@60Hz pos 1920 0 scale 2.0 transform 90
+output DP-2 mode 3840x2160@60Hz pos 0 0 scale 2.0
+# output DP-2 mode 3840x2160@60Hz pos 1920 0 scale 2.0 transform 90
 
 # ============================================================================
 # INPUT CONFIGURATION
