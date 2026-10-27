@@ -118,11 +118,13 @@ bindsym $mod+q kill
 # KEY BINDINGS - WINDOW FOCUS & NAVIGATION
 # ============================================================================
 
-# Focus windows (vim-style hjkl)
-bindsym $mod+h focus left
+# Switch to previous/next workspace (vim-style horizontal)
+bindsym $mod+h workspace prev
+bindsym $mod+l workspace next
+
+# Focus windows (vim-style vertical)
 bindsym $mod+j focus down
 bindsym $mod+k focus up
-bindsym $mod+l focus right
 
 # Move focused window (vim-style)
 bindsym $mod+Shift+h move left
