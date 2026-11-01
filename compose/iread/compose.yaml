@@ -24,6 +24,10 @@ services:
     environment:
       PORT: "9999"
       HOST: "127.0.0.1"
+      # Several feeds are unreachable directly from this host; fetch via the local proxy.
+      HTTPS_PROXY: "http://127.0.0.1:10013"
+      HTTP_PROXY: "http://127.0.0.1:10013"
+      NO_PROXY: "localhost,127.0.0.1,::1,isomoes.site"
     volumes:
       - "${HOME}/.config/iread:/data"
     restart: unless-stopped
