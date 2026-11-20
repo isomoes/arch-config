@@ -226,3 +226,4 @@ compose/**/.env
 /winapps/winapps.conf
 /freerdp/server
 /samba/hpm125.auth
+/GIMP/3.2
