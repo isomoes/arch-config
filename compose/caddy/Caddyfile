@@ -48,6 +48,19 @@ http://daed.localhost {
 	}
 }
 
+http://honk.localhost {
+	route {
+		import local_request_guard http://honk.localhost
+		redir / "/ui/#/activity" 302
+
+		# Honk requires a loopback Host and Origin.
+		reverse_proxy 127.0.0.1:9527 {
+			header_up Host 127.0.0.1:9527
+			header_up Origin http://127.0.0.1:9527
+		}
+	}
+}
+
 http://agentsview.localhost {
 	route {
 		import local_request_guard http://agentsview.localhost
